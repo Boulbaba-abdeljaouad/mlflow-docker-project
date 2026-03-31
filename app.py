@@ -23,4 +23,4 @@ def predict(request: PredictionRequest):
 
     features = np.array(request.features).reshape(1, -1)
     prediction = model.predict(features)[0]
-    return {"prediction": int(prediction)}
+    return {"prediction": int(prediction)}sdsds
