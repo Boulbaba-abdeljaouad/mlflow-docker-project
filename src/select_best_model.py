@@ -56,7 +56,7 @@ print(f"Registered version: {registered_model.version}")
 client.set_registered_model_alias(
     name=REGISTERED_MODEL_NAME,
     alias="Champion",
-    version=registered_model.version sss
+    version=registered_model.version
 )
 
 print(f"Alias 'Champion' assigned to version {registered_model.version}")
