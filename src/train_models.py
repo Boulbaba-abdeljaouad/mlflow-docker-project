@@ -97,5 +97,5 @@ for model_name, params, model in models:
             "accuracy": round(accuracy, 4),
             "recall": round(recall, 4),
             "precision": round(precision, 4),
-            "f1_score": round(f1, 4)wewe
+            "f1_score": round(f1, 4)
         })
