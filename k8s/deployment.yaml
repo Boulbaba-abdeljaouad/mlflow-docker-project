@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: credit-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: credit-api
+  template:
+    metadata:
+      labels:
+        app: credit-api
+    spec:
+      containers:
+      - name: credit-api
+        image: credit-default-inference:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
