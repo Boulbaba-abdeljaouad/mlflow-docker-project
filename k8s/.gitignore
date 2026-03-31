@@ -1,8 +1,0 @@
-cat > .gitignore <<'EOF'
-__pycache__/
-*.pyc
-.venv/
-mlruns/
-.DS_Store
-*.log
-EOF

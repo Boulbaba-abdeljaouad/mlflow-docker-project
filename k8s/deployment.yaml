@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: credit-api
-        image: credit-default-inference:latest
-        imagePullPolicy: Never
+        image: jouda2/credit-default-inference:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
