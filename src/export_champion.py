@@ -23,4 +23,4 @@ model = mlflow.sklearn.load_model(model_uri)
 joblib.dump(model, EXPORT_PATH)
 
 print(f"Champion model loaded from: {model_uri}")
-print(f"Model exported successfully to: {EXPORT_PATH}")sal
+print(f"Model exported successfully to: {EXPORT_PATH}")
