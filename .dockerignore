@@ -6,3 +6,5 @@ src
 data
 .git
 .venv
+.dvc
+artifacts
