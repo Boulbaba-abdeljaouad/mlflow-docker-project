@@ -4,27 +4,15 @@ stages:
     deps:
       - src/train_models.py
       - data/UCI_Credit_Card.csv
-    outs:
-      - mlruns
-      - mlflow.db
-      - artifacts/training_done.txt
 
   select_best:
     cmd: python src/select_best_model.py
     deps:
       - src/select_best_model.py
-      - mlruns
-      - mlflow.db
-      - artifacts/training_done.txt
-    outs:
-      - artifacts/best_model_selected.txt
+      - src/train_models.py
 
   export_champion:
     cmd: python src/export_champion.py
     deps:
       - src/export_champion.py
-      - mlruns
-      - mlflow.db
-      - artifacts/best_model_selected.txt
-    outs:
-      - model.pkl
+      - src/select_best_model.py
