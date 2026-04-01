@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # Credit Default MLOps Pipeline
 
 This project implements an end-to-end MLOps workflow for predicting credit card default risk.

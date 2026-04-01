@@ -66,7 +66,13 @@ models = [
 # -----------------------------
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
-mlflow.set_experiment("Credit Default Classification")
+
+mlflow.set_experiment(EXPERIMENT_NAME)
+
+
+#mlflow.set_experiment("Credit Default Classification")
+
+
 for model_name, params, model in models:
     with mlflow.start_run(run_name=model_name):
         model.set_params(**params)
@@ -99,3 +105,11 @@ for model_name, params, model in models:
             "precision": round(precision, 4),
             "f1_score": round(f1, 4)
         })
+
+
+from pathlib import Path
+
+artifacts_dir = Path.cwd() / "artifacts"
+artifacts_dir.mkdir(parents=True, exist_ok=True)
+(artifacts_dir / "training_done.txt").write_text("training completed\n")
+print(f"Created marker file: {artifacts_dir / 'training_done.txt'}")

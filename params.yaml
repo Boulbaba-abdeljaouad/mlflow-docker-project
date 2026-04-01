@@ -1,0 +1,6 @@
+paths:
+  data: data/UCI_Credit_Card.csv
+  exported_model: model.pkl
+
+selection:
+  metric: recall
