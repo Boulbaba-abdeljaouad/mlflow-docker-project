@@ -60,3 +60,11 @@ client.set_registered_model_alias(
 )
 
 print(f"Alias 'Champion' assigned to version {registered_model.version}")
+
+##Meriem dvc
+from pathlib import Path
+
+artifacts_dir = Path.cwd() / "artifacts"
+artifacts_dir.mkdir(parents=True, exist_ok=True)
+(artifacts_dir / "best_model_selected.txt").write_text("best model selected\n")
+print(f"Created marker file: {artifacts_dir / 'best_model_selected.txt'}")
