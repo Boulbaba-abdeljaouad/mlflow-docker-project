@@ -39,13 +39,22 @@ stages:
       md5: 9652e003f23a0cc6ad1c3840383a968f
       size: 3171
   export_champion:
-    cmd: python src/export_champion.py
+    cmd: python3 src/export_champion.py
     deps:
+    - path: mlflow.db
+      hash: md5
+      md5: 6132be017554b325d45af0097fdaed31
+      size: 626688
     - path: src/export_champion.py
       hash: md5
-      md5: 055c77080b8ca739352f00121931f594
-      size: 708
+      md5: a7ed41f33690fd9dd39c8e68de7acf83
+      size: 683
     - path: src/select_best_model.py
       hash: md5
-      md5: afcedafdb05bdff342537dc8a27e37d6
-      size: 2009
+      md5: 0f4fda4f28e4a515bb947abc65864c98
+      size: 1940
+    outs:
+    - path: model.pkl
+      hash: md5
+      md5: 147282153331643445341503c9cf3ee2
+      size: 139976
