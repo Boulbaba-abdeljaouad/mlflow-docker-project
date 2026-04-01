@@ -1,27 +1,43 @@
 schema: '2.0'
 stages:
   train:
-    cmd: python src/train_models.py
+    cmd: python3 src/train_models.py
     deps:
     - path: data/UCI_Credit_Card.csv
       hash: md5
-      md5: 63d066fff365977c74ff63f844a5b039
-      size: 2892996
+      md5: 940b416bb13a9b24bb5c9e1589284005
+      size: 2862995
+    - path: requirements.txt
+      hash: md5
+      md5: 6238778424bbb7389396ac78b6f92148
+      size: 65
     - path: src/train_models.py
       hash: md5
-      md5: 41fe6698c8cf0c8813f4c28787827391
-      size: 3285
+      md5: 9652e003f23a0cc6ad1c3840383a968f
+      size: 3171
   select_best:
-    cmd: python src/select_best_model.py
+    cmd: python3 src/select_best_model.py
     deps:
+    - path: data/UCI_Credit_Card.csv
+      hash: md5
+      md5: 940b416bb13a9b24bb5c9e1589284005
+      size: 2862995
+    - path: mlflow.db
+      hash: md5
+      md5: 6132be017554b325d45af0097fdaed31
+      size: 626688
+    - path: requirements.txt
+      hash: md5
+      md5: 6238778424bbb7389396ac78b6f92148
+      size: 65
     - path: src/select_best_model.py
       hash: md5
-      md5: afcedafdb05bdff342537dc8a27e37d6
-      size: 2009
+      md5: 0f4fda4f28e4a515bb947abc65864c98
+      size: 1940
     - path: src/train_models.py
       hash: md5
-      md5: 41fe6698c8cf0c8813f4c28787827391
-      size: 3285
+      md5: 9652e003f23a0cc6ad1c3840383a968f
+      size: 3171
   export_champion:
     cmd: python src/export_champion.py
     deps:
