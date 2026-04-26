@@ -42,13 +42,27 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t credit-default-inference:latest .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/credit-default-inference:latest .
+
+      - name: Login to Docker Hub
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push Docker image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/credit-default-inference:latest
 
       - name: Save Docker image as artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          docker save credit-default-inference:latest -o credit-default-inference.tar
+          docker save ${{ secrets.DOCKERHUB_USERNAME }}/credit-default-inference:latest -o credit-default-inference.tar
 
       - name: Upload Docker image artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v4
         with:
           name: credit-default-inference-image
