@@ -26,14 +26,3 @@ uvicorn app:app --reload
 ### Run with Docker
 docker build -t credit-default-inference .
 docker run -p 8000:8000 credit-default-inference
-
-## DVC Remote Setup (Portable)
-This project expects a DVC remote URL from an environment variable instead of a machine-specific path.
-
-Set your remote once before `dvc pull` or `dvc push`:
-
-PowerShell:
-`$env:DVC_REMOTE_URL="your-dvc-remote-url"`
-
-Bash:
-`export DVC_REMOTE_URL="your-dvc-remote-url"`
