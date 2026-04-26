@@ -1,4 +1,5 @@
 [core]
     remote = storage
 ['remote "storage"']
-    url = ./dvc_remote_placeholder
+    url = gdrive://1K9oa6bgOOXOGvT3iz9NG894aK4G9TzOL
+    gdrive_use_service_account = true
