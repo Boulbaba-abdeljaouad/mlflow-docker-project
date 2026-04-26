@@ -11,6 +11,14 @@ This project implements an end-to-end MLOps workflow for predicting credit card 
 
 ## How to run
 
+### Prerequisites
+- Python 3.11
+- Docker
+- DVC with Google Drive support: `pip install "dvc[gdrive]"`
+
+### Pull dataset (required before training)
+`dvc pull data/UCI_Credit_Card.csv.dvc`
+
 ### Train models
 python src/train_models.py
 
@@ -26,3 +34,10 @@ uvicorn app:app --reload
 ### Run with Docker
 docker build -t credit-default-inference .
 docker run -p 8000:8000 credit-default-inference
+
+## CI testing (GitHub Actions)
+The workflows in this repository require these GitHub repository secrets:
+- `DVC_REMOTE_URL`
+- `GDRIVE_CREDENTIALS_DATA`
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`
