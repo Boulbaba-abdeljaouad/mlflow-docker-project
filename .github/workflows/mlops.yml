@@ -25,7 +25,14 @@ jobs:
           pip install -r requirements.txt
           pip install dvc
 
+      - name: Pull DVC data
+        env:
+          DVC_REMOTE_URL: ${{ secrets.DVC_REMOTE_URL }}
+        run: dvc pull
+
       - name: Recreate DVC pipeline
+        env:
+          DVC_REMOTE_URL: ${{ secrets.DVC_REMOTE_URL }}
         run: dvc repro -f
 
       - name: Build Docker image

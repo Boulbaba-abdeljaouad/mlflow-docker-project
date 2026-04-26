@@ -1,4 +1,4 @@
 [core]
     remote = storage
 ['remote "storage"']
-    url = /Users/boulbabaabdeljaouad/dvc-remote-credit-project
+    url = ${DVC_REMOTE_URL}
